@@ -77,7 +77,6 @@ int main()
 			//cout << sum[k - 1].N << " " << sum[k - 1].a << endl;
 			continue;
 		}
-
 		if (A[i].N == B[j].N) {//如果A式的某一项的指数与B式的指数相同，则二者系数相加到sum中
 			sum[k].N = A[i].N;
 			sum[k].a = A[i].a + B[j].a;
