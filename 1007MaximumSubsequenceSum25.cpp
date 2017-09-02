@@ -16,7 +16,6 @@
 // 第一步、先找到子序列的最大值
 // 第二步、找到最大值以后，再返回找子序列的开口和结尾
 // 代码：
-#include "stdafx.h"
 #include<iostream>
 using namespace std;
 int main()
