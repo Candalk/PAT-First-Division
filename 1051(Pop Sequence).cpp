@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // 1051(Pop Sequence).cpp : 定义控制台应用程序的入口点。
 //
 
@@ -34,3 +35,14 @@ int main()
     return 0;
 }
 
+=======
+#include<iostream>
+#include<stack>
+using namespace std;
+int main()
+{
+
+
+    return 0;
+}
+>>>>>>> 3e478f19506213017463f2a0213221beac542ae8
