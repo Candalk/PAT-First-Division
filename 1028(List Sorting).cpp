@@ -1,7 +1,3 @@
-// 1028(List Sorting).cpp : 定义控制台应用程序的入口点。
-//
-
-#include "stdafx.h"
 #include<iostream>
 #include<string.h>
 #include<algorithm>
