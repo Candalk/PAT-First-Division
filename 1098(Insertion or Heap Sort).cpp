@@ -1,7 +1,3 @@
-// 1098(Insertion or Heap Sort).cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
-//
-
-#include "stdafx.h"
 #include<cstdio>
 #include<vector>
 #include<algorithm>
@@ -40,7 +36,7 @@ int main()
 	for (int i = 1; i <= N; i++)
 		scanf("%d", &v2[i]);
     i = 2;
-	while (i <=N  && v2[i-1] <= v2[i])i++;//×¢Òâ±ß½çÎÊÌâ£¬ÒªĞ¡ÓÚµÈÓÚ²Å¿ÉÒÔ
+	while (i <=N  && v2[i-1] <= v2[i])i++;//æ³¨æ„è¾¹ç•Œé—®é¢˜ï¼Œè¦å°äºç­‰äºæ‰å¯ä»¥
 	int j = i ;
 	while (i<=N && v2[i] == v1[i])i++;
 	if (i == N+1) {
@@ -51,7 +47,7 @@ int main()
 	else {
 		printf("Heap Sort\n");
 		i = N ;
-		while (i >= 2 && v2[i] >= v2[i - 1])//ÕâÀïÒ²Òª×¢Òâ±ß½çÎÊÌâ£¬¼ÇµÃ¼ÓÉÏµÈºÅ
+		while (i >= 2 && v2[i] >= v2[i - 1])//è¿™é‡Œä¹Ÿè¦æ³¨æ„è¾¹ç•Œé—®é¢˜ï¼Œè®°å¾—åŠ ä¸Šç­‰å·
 			i--;
 		swap(v2[1],v2[i]);
 		adjust(1, i-1);
