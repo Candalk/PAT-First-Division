@@ -1,7 +1,3 @@
-// 1055(The World's Richest).cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
-//
-
-#include "stdafx.h"
 #include<cstdio>
 #include<string.h>
 #include<vector>
@@ -24,14 +20,14 @@ int main()
 	
 	int N, K;
 	scanf("%d %d", &N, &K);
-	vector<node> P(N), V;//PÓÃÀ´Í³¼ÆÔ­Ê¼Êı¾İ£¬V¼ÇÂ¼É¸Ñ¡ºóµÄÊı¾İ
+	vector<node> P(N), V;//Pç”¨æ¥ç»Ÿè®¡åŸå§‹æ•°æ®ï¼ŒVè®°å½•ç­›é€‰åçš„æ•°æ®
 	int book[201] = { 0 };
 	for (int i = 0; i < N; i++) 
 		scanf("%s %d %d", P[i].name, &P[i].age, &P[i].net_worth);
 	
-	sort(P.begin(), P.end(), cmp1);//Ö±½Ó°´ÕÕ×îºóµÄÒªÇóÅÅĞò
+	sort(P.begin(), P.end(), cmp1);//ç›´æ¥æŒ‰ç…§æœ€åçš„è¦æ±‚æ’åº
 
-	for (int i = 0; i < N; i++) {//Ã¿¸öÄêÁäÈ¡Ç°Ò»°ÙÃû£¬ÒòÎªM<=100,Ã¿´Î×î¶àÊä³ö100¸öÈË£¬Èç¹ûÃ»ÓĞÕâÒ»²½»á³¬Ê±
+	for (int i = 0; i < N; i++) {//æ¯ä¸ªå¹´é¾„å–å‰ä¸€ç™¾åï¼Œå› ä¸ºM<=100,æ¯æ¬¡æœ€å¤šè¾“å‡º100ä¸ªäººï¼Œå¦‚æœæ²¡æœ‰è¿™ä¸€æ­¥ä¼šè¶…æ—¶
 		if (book[P[i].age] <= 100) {
 			V.push_back(P[i]);
 			book[P[i].age]++;
@@ -40,9 +36,9 @@ int main()
 	for (int i = 1; i <=K; i++) {
 		int M, Amin, Amax;
 		scanf("%d %d %d", &M, &Amin, &Amax);
-		vector<node> v;//vÓÃÓÚ¼ÇÂ¼×îºóµÄ½á¹û
+		vector<node> v;//vç”¨äºè®°å½•æœ€åçš„ç»“æœ
 		for (int j = 0; j < V.size(); j++) {
-			if (V[j].age >= Amin&&V[j].age <= Amax) {//Âú×ãÒªÇó¾ÍÑ¹ÈëvÖĞ
+			if (V[j].age >= Amin&&V[j].age <= Amax) {//æ»¡è¶³è¦æ±‚å°±å‹å…¥vä¸­
 				v.push_back(V[j]);
 			}
 		}
