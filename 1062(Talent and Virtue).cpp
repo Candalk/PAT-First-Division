@@ -1,7 +1,3 @@
-// 1062(Talent and Virtue).cpp : 定义控制台应用程序的入口点。
-//
-
-#include "stdafx.h"
 #include<cstdio>
 #include<vector>
 #include<string.h>
@@ -32,7 +28,7 @@ int main()
 			if (V.Virtue >= H&&V.Talent >= H) {
 				P[0].push_back(V);
 			}
-			else if (V.Talent < H&&V.Virtue >= 80) {
+			else if (V.Talent < H&&V.Virtue >= H) {
 				P[1].push_back(V);
 			}
 			else if (V.Talent < H&&V.Virtue < H&&V.Virtue >= V.Talent) {
