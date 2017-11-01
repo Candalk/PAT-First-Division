@@ -1,14 +1,9 @@
-// 1075(PAT Judge).cpp : �������̨Ӧ�ó������ڵ㡣
-//
-
-#include "stdafx.h"
-
 /*
-������ҵĴ���㣺
-1.perfectly����������˼��Ҳ����˵�������֣���ȴ������Ϊ����߷ֵ������������˰�
-2.���е���ô�죿û�аѲ��е�����Ū����ͬ�ģ�ɵ�˰�
-3.����Ҫ�����ĳ�����ύ�ˣ�����ûͨ������������ʱ��ɼ���Ϊ0��������-1��
-Ϊ�˺÷ֱ棬������������Ǳ�ǳɼ�Ϊ-2��û�н�����Ϊ-1�������ʱ��ֱ�һ�¼���
+这道题我的错误点：
+1.perfectly是完整的意思，也就是说得了满分，我却他妈以为是最高分的题号数，抽筋了吧
+2.并列的怎么办？没有把并列的排名弄成相同的，傻了吧
+3.按照要求，如果某个人提交了，但是没通过编译器，这时候成绩记为0，而不是-1，
+为了好分辨，这种情况下我们标记成绩为-2，没有交过的为-1，输出的时候分辨一下即可
 */
 #include<cstdio>
 #include<vector>
@@ -34,7 +29,11 @@ int main()
 	for (int i = 1; i <= K; i++)
 		scanf("%d", &P[i]);
 	for (int i = 0; i <= N; i++) {
-		fill(v[i].p, v[i].p + 6, -1);
+		/*
+		默认为-2，表示没提交过，
+		-1表示表示没通过编译器
+		*/
+		fill(v[i].p, v[i].p + 6, -2);
 		v[i].flag = 0;
 	}
 	for (int i = 0; i < M; i++) {
@@ -43,17 +42,19 @@ int main()
 		v[id].id = id;
 		if (v[id].p[p_id] < p_score) {
 			v[id].p[p_id] = p_score;
-		}
-		if (p_score != -1) {
-			v[id].flag = 1;
-		} else if(v[id].p[p_id]==-1){
-			v[id].p[p_id] = -2;
-		}
+		} 
 	}
+	
 	for (int i = 1; i <= N; i++) {
+			v[i].flag = 0;
+			/*如果成绩有大于等于0的，标记flag=1，表示可以输出
+			*/
 		for (int j = 1; j <= K; j++) {
-			if(v[i].p[j]!=-1&&v[i].p[j]!=-2)
+			if (v[i].p[j] != -1 && v[i].p[j] != -2) {
 				v[i].total_score += v[i].p[j];
+				v[i].flag = 1;
+			}
+				
 			if (v[i].p[j] == P[j])v[i].perfect++;
 		}
 	}
@@ -71,7 +72,7 @@ int main()
 			for (int j = 1; j <= K; j++) {
 				if (v[i].p[j] != -1&& v[i].p[j] != -2)
 					printf(" %d", v[i].p[j]);
-				else if(v[i].p[j] == -2)printf(" 0");
+				else if(v[i].p[j] == -1)printf(" 0");
 				else printf(" -");
 			}
 			printf("\n");
@@ -80,4 +81,3 @@ int main()
 	}
 	return 0;
 }
-
